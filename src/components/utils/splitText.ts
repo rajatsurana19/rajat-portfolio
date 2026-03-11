@@ -18,7 +18,6 @@ if (window.innerWidth < 900) return;
 const paras: NodeListOf<ParaElement> = document.querySelectorAll(".para");
 const titles: NodeListOf<ParaElement> = document.querySelectorAll(".title");
 
-const TriggerStart = window.innerWidth <= 1024 ? "top 60%" : "20% 60%";
 const ToggleAction = "play pause resume reverse";
 
 paras.forEach((para: ParaElement) => {
@@ -45,7 +44,7 @@ para.anim = gsap.fromTo(
     scrollTrigger: {
       trigger: para.parentElement?.parentElement,
       toggleActions: ToggleAction,
-      start: TriggerStart,
+      start: window.innerWidth <= 1024 ? "top 60%" : "20% 60%",
     },
     duration: 1,
     ease: "power3.out",
@@ -79,7 +78,7 @@ title.anim = gsap.fromTo(
     scrollTrigger: {
       trigger: title.parentElement?.parentElement,
       toggleActions: ToggleAction,
-      start: TriggerStart,
+      start: window.innerWidth <= 1024 ? "top 60%" : "20% 60%",
     },
     duration: 0.8,
     ease: "power2.inOut",
