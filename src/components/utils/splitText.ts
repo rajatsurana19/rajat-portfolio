@@ -18,8 +18,6 @@ if (window.innerWidth < 900) return;
 const paras: NodeListOf<ParaElement> = document.querySelectorAll(".para");
 const titles: NodeListOf<ParaElement> = document.querySelectorAll(".title");
 
-const ToggleAction = "play pause resume reverse";
-
 paras.forEach((para: ParaElement) => {
 para.classList.add("visible");
 
@@ -43,7 +41,7 @@ para.anim = gsap.fromTo(
     autoAlpha: 1,
     scrollTrigger: {
       trigger: para.parentElement?.parentElement,
-      toggleActions: ToggleAction,
+      toggleActions: "play pause resume reverse",
       start: window.innerWidth <= 1024 ? "top 60%" : "20% 60%",
     },
     duration: 1,
@@ -77,7 +75,7 @@ title.anim = gsap.fromTo(
     autoAlpha: 1,
     scrollTrigger: {
       trigger: title.parentElement?.parentElement,
-      toggleActions: ToggleAction,
+      toggleActions: "play pause resume reverse",
       start: window.innerWidth <= 1024 ? "top 60%" : "20% 60%",
     },
     duration: 0.8,
