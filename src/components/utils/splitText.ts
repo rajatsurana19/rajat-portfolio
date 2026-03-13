@@ -8,7 +8,7 @@ anim?: gsap.core.Animation;
 split?: any;
 }
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 export default function setSplitText() {
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -27,7 +27,7 @@ if (para.anim) {
   para.split?.revert();
 }
 
-const split: any = new SplitText(para, {
+const split = new SplitText(para as HTMLElement, {
   type: "lines,words",
   linesClass: "split-line",
 });
